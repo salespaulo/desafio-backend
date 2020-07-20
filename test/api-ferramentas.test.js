@@ -7,7 +7,7 @@ const app = require('../app/start')
 
 const utils = require('./utils')
 
-const API_URL = '/api/tools'
+const API_URL = '/tools'
 
 describe(`Testing API ${API_URL}`, () => {
     const title = `hotel-${v4()}`

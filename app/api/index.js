@@ -2,7 +2,7 @@
 
 const ferramentas = require('./ferramentas')
 
-const URI = '/api'
+const URI = '/'
 
 module.exports = actor => {
     const router = new actor.Router()
