@@ -1,7 +1,7 @@
 'use strict'
 
 const { debug, objects } = require('fvi-node-utils')
-const { ferramentas, tags, ferramentastags } = require('desafio-backend-repo')
+const { sequelize, ferramentas, tags, ferramentastags } = require('desafio-backend-repo')
 
 const schema = require('./schema')
 const { APP_PREFIX } = require('../utils')
@@ -25,21 +25,28 @@ const criar = async obj => {
     const value = validarFerramenta(obj)
     debug.here(`${APP_PREFIX}: Criando ferramenta=${objects.inspect(value)}`)
 
-    const data = await ferramentas.create(value)
-    const promises = value.tags.map(async id => {
-        const dataTag = await tags.findByPk(id)
+    const transaction = await sequelize.transaction()
 
-        if (dataTag == null) {
-            return tags.create({ id })
+    try {
+        const tagsExist = await tags.findAll({ where: { id: value.tags } })
+        const tagsNExist = value.tags.filter(id => !tagsExist.map(t => t.id).includes(id))
+
+        if (tagsNExist.length > 0) {
+            await tags.bulkCreate(
+                tagsNExist.map(id => ({ id })),
+                { transaction }
+            )
         }
 
-        return dataTag
-    })
+        const data = await ferramentas.create(value, { transaction })
+        await data.setTags(value.tags, { transaction })
 
-    const dataTags = await Promise.all(promises)
-    await data.setTags(dataTags.map(tag => tag.id))
-
-    return buscarPorId(data.id)
+        await transaction.commit()
+        return buscarPorId(data.id)
+    } catch (e) {
+        await transaction.rollback()
+        throw e
+    }
 }
 
 const excluirPorId = async id => {

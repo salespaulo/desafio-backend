@@ -5,7 +5,7 @@ const { inspect, toErrorStack } = require('fvi-node-utils/app/objects')
 
 const logger = require('../logger')
 
-const APP_PREFIX= `[${path.basename(path.resolve())}]`,
+const APP_PREFIX = `[${path.basename(path.resolve())}]`
 
 const logAndReturnError = (execId, error) => {
     return toErrorStack(error, log =>

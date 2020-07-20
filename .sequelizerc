@@ -2,9 +2,11 @@
 
 const path = require('path');
 
+const NODE_MODULES = './libs/desafio-backend-repo'
+
 module.exports = {
-  'config': path.resolve(path.join('app', 'config'), 'index.js'),
-  'models-path': path.resolve('app', 'models'),
-  'seeders-path': path.resolve('app', 'seeders'),
-  'migrations-path': path.resolve('app', 'migrations')
+  'config': path.resolve(path.join(NODE_MODULES, 'app', 'config'), 'index.js'),
+  'models-path': path.resolve(NODE_MODULES, 'app', 'models'),
+  'seeders-path': path.resolve(NODE_MODULES, 'app', 'seeders'),
+  'migrations-path': path.resolve(NODE_MODULES, 'app', 'migrations')
 };
