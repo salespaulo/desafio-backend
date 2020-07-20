@@ -1,11 +1,11 @@
 {
-    "name": "desafio-backend",
+    "name": "desafio-backend-repo",
     "version": "0.0.0",
-    "description": "PS - Desafio Backend Server",
+    "description": "PS - Desafio Backend Repository Library",
     "main": "app/index.js",
     "prettier": "fvi-prettier-config",
     "scripts": {
-        "build": "grunt compile",
+        "compile": "grunt compile",
         "test": "grunt test",
         "debug-test": "grunt debug-test",
         "dev": "grunt dev",
@@ -22,27 +22,23 @@
         "url": "https://github.com/salespaulo/desafio-backend.git"
     },
     "keywords": [
-        "desafio",
-        "backend"
+        "repository"
     ],
     "author": "PS",
     "license": "MIT",
     "homepage": "git+https://github.com/salespaulo/desafio-backend.git#readme",
     "dependencies": {
         "bcrypt": "^5.0.0",
-        "desafio-backend-core": "file:./libs/desafio-backend-core",
-        "fvi-actor-system": "0.0.1",
-        "fvi-koa-server-actor": "0.0.1",
         "fvi-node-utils": "^0.0.1",
         "sequelize": "^5.21.12",
         "sqlite3": "^5.0.0"
     },
     "devDependencies": {
+        "uuid": "^8.2.0",
         "sequelize-cli": "^5.5.1",
         "chai": "^4.2.0",
         "chai-http": "^4.3.0",
         "grunt": "^1.1.0",
-        "grunt-apidoc": "^0.11.0",
         "grunt-concurrent": "^3.0.0",
         "grunt-contrib-clean": "^2.0.0",
         "grunt-contrib-compress": "^1.6.0",

@@ -24,6 +24,5 @@ const doApiError = (execId, ctx, e) => {
 
 module.exports = {
     APP_PREFIX,
-    logAndReturnError,
     doApiError,
 }
