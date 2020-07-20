@@ -1,0 +1,21 @@
+{
+    "server": {
+        "name": "staging-desafio-backend",
+        "port": "3000",
+        "version": "1.0.0"
+    },
+    "database": {
+        "type": "sequelize",
+        "name": "database",
+        "username": "admin",
+        "password": "admin",
+        "dialect": "sqlite",
+        "storage": "/.data/database.sqlite",
+        "define": {
+            "freezeTableName": true
+        }
+    },
+    "logger": {
+        "level": "info"
+    }
+}

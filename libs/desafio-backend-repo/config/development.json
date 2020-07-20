@@ -1,0 +1,12 @@
+{
+    "database": {
+        "name": "database",
+        "username": "admin",
+        "password": "admin",
+        "dialect": "sqlite",
+        "storage": "/.data/database.sqlite",
+        "define": {
+            "freezeTableName": true
+        }
+    }
+}
