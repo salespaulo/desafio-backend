@@ -16,9 +16,11 @@ const validarFerramenta = obj => {
     return value
 }
 
-const buscarPorId = id => {
+const buscarPorId = async id => {
     debug.here(`${APP_PREFIX}: Buscando Ferramenta Por id=${id}`)
-    return ferramentas.findByPk(id, { include: 'tags' })
+    const data = await ferramentas.findByPk(id, { include: 'tags' })
+    data.tags = data.tags.map(t => t.id)
+    return data
 }
 
 const criar = async obj => {
@@ -70,9 +72,11 @@ const listarTodos = () => {
     return ferramentas.findAll()
 }
 
-const listarPor = query => {
+const listarPor = async query => {
     debug.here(`${APP_PREFIX}: Listar Ferramenta Por query=${objects.inspect(query)}`)
-    return ferramentas.findAll({ where: query }, { include: 'tags' })
+    const data = await ferramentas.findAll({ where: query }, { include: 'tags' })
+    data.tags = data.tags.map(t => t.id)
+    return data
 }
 
 module.exports = {

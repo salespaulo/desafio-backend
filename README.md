@@ -12,6 +12,92 @@
 -   `npm run release:major`: Inicia uma nova release de versão incrementando o **major**, [git flow](https://github.com/nvie/gitflow/) release start.
 -   `npm run release:finish`: Finaliza a release, ou seja, realiza o [git flow](https://github.com/nvie/gitflow/) release finish.
 
+## Rodando Servidor
+
+```
+$> git clone https://github.com/salespaulo/desafio-backend.git
+$> cd desafio-backend
+$> npm install
+$> grunt
+```
+
+ou
+
+```
+$> git clone https://github.com/salespaulo/desafio-backend.git
+$> cd desafio-backend
+$> npm install
+$> NODE_ENV=development node app/index
+```
+
+## Acessando Servidor
+
+-   API: http://localhost:3000/tools
+-   Documentação da API: http://localhost:3000/api-doc/index.html
+
+## Modo Desenvolvimento
+
+```
+$> git clone https://github.com/salespaulo/desafio-backend.git
+$> cd desafio-backend
+$> npm install
+$> npm run dev
+```
+
+### Debug
+
+```
+$> git clone https://github.com/salespaulo/desafio-backend.git
+$> cd desafio-backend
+$> npm install
+$> npm run debug-dev
+```
+
+## Rodando os Testes
+
+```
+$> git clone https://github.com/salespaulo/desafio-backend.git
+$> cd desafio-backend
+$> npm install
+$> npm run test
+```
+
+### Debug
+
+```
+$> git clone https://github.com/salespaulo/desafio-backend.git
+$> cd desafio-backend
+$> npm install
+$> npm run debug-test
+```
+
+## Parâmetros ou Variáveis de Ambiente
+
+Os parâmetros podem ser setados no momento da execução do servidor, e.g. `node app/index --http-server-name=desafio-nome-servidor`.
+As variáveis de amb. podem ser setadas diretamente no sistema operacional e estão representadas abaixo pelas palavras compostas por letras maíusculas.
+
+### Gerais
+
+-   NODE_ENV: `development` ou `test`, padrão `development`.
+-   DEBUG: `desafio-backend` ou `*`, mostra todos os [debugjs](https://www.npmjs.com/package/debug).
+
+### Servidor
+
+-   --http-server-name || HTTP_SERVER_NAME: Nome do servidor.
+-   --http-server-port || HTTP_SERVER_PORT: Porta do servidor.
+-   --http-server-version || HTTP_SERVER_VERSION: Versão do servidor.
+
+### Banco de Dados
+
+-   --database-name || DATABASE_NAME: Nome do banco.
+-   --database-user || DATABASE_USER: Usuário do banco.
+-   --database-password || DATABASE_PASSWORD: Senha do banco.
+-   --database-dialect || DATABASE_DIALECT: [Dialeto do Sequelize](https://sequelize.org/v5/manual/dialects.html) p/ o banco.
+
+### Logger
+
+-   --logger-level || LOGGER_LEVEL: Nível de Log.
+
 # Dev. Back-End
 
 Sua tarefa é construir uma API e banco de dados para a aplicação VUTTR (Very Useful Tools to Remember).
