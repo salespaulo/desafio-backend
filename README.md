@@ -1,46 +1,153 @@
+# Grunt
+
+-   `npm run build`: Executa a limpeza dos arquivos e diretorios.
+-   `npm run debug-test`: Executa os testes unitários com o DEBUG ativo.
+-   `npm run test`: Executa os testes unitários.
+-   `npm run debug-dev`: Executa os testes unitários e espera por alterações com o DEBUG ativo.
+-   `npm run dev`: Executa os testes unitários e espera por alterçãoes.
+-   `npm run prod`: Executa o código com NODE_ENV=production.
+-   `npm run coverage`: Executa os testes unitários e retorna a cobertura dos códigos através do [nyc](https://github.com/istanbuljs/nyc/)
+-   `npm run release`: Inicia uma nova release de versão incrementando o **patch**, [git flow](https://github.com/nvie/gitflow/) release start.
+-   `npm run release:minor`: Inicia uma nova release de versão incrementando o **minor**, [git flow](https://github.com/nvie/gitflow/) release start.
+-   `npm run release:major`: Inicia uma nova release de versão incrementando o **major**, [git flow](https://github.com/nvie/gitflow/) release start.
+-   `npm run release:finish`: Finaliza a release, ou seja, realiza o [git flow](https://github.com/nvie/gitflow/) release finish.
+
+# Rodando Servidor
+
+```
+$> git clone https://github.com/salespaulo/desafio-backend.git
+$> cd desafio-backend
+$> npm install
+$> grunt
+```
+
+ou
+
+```
+$> git clone https://github.com/salespaulo/desafio-backend.git
+$> cd desafio-backend
+$> npm install
+$> NODE_ENV=development node app/index
+```
+
+# Acessando Servidor
+
+-   API: http://localhost:3000/tools
+-   Documentação da API: http://localhost:3000/api-doc/index.html
+
+# Modo Desenvolvimento
+
+```
+$> git clone https://github.com/salespaulo/desafio-backend.git
+$> git flow init
+$> cd desafio-backend
+$> npm install
+$> npm run dev
+```
+
+## Debug
+
+```
+$> git clone https://github.com/salespaulo/desafio-backend.git
+$> git flow init
+$> cd desafio-backend
+$> npm install
+$> npm run debug-dev
+```
+
+# Rodando os Testes
+
+```
+$> git clone https://github.com/salespaulo/desafio-backend.git
+$> cd desafio-backend
+$> npm install
+$> npm run test
+```
+
+## Debug
+
+```
+$> git clone https://github.com/salespaulo/desafio-backend.git
+$> cd desafio-backend
+$> npm install
+$> npm run debug-test
+```
+
+# Parâmetros ou Variáveis de Ambiente
+
+Os parâmetros podem ser setados no momento da execução do servidor, e.g. `node app/index --http-server-name=desafio-nome-servidor`.
+As variáveis de amb. podem ser setadas diretamente no sistema operacional e estão representadas abaixo pelas palavras compostas por letras maíusculas.
+
+## Gerais
+
+-   NODE_ENV: `development` ou `test`, padrão `development`.
+-   DEBUG: `desafio-backend` ou `*`, mostra todos os [debugjs](https://www.npmjs.com/package/debug).
+
+## Servidor
+
+-   --http-server-name || HTTP_SERVER_NAME: Nome do servidor.
+-   --http-server-port || HTTP_SERVER_PORT: Porta do servidor.
+-   --http-server-version || HTTP_SERVER_VERSION: Versão do servidor.
+
+## Banco de Dados
+
+-   --database-name || DATABASE_NAME: Nome do banco.
+-   --database-user || DATABASE_USER: Usuário do banco.
+-   --database-password || DATABASE_PASSWORD: Senha do banco.
+-   --database-dialect || DATABASE_DIALECT: [Dialeto do Sequelize](https://sequelize.org/v5/manual/dialects.html) p/ o banco.
+
+## Logger
+
+-   --logger-level || LOGGER_LEVEL: Nível de Log.
+
+# Módulos
+
+-   [./libs/desafio-backend-repo](./libs/desafio-backend-repo/README.md): Módulo com a implementação do repositório backend.
+-   [./libs/desafio-backend-core](./libs/desafio-backend-core/README.md): Módulo com a implementação dos serviços backend.
+
 # Dev. Back-End
 
 Sua tarefa é construir uma API e banco de dados para a aplicação VUTTR (Very Useful Tools to Remember).
-A aplicação é um simples repositório para gerenciar ferramentas com seus respectivos nomes, links, descrições e tags. 
+A aplicação é um simples repositório para gerenciar ferramentas com seus respectivos nomes, links, descrições e tags.
 Utilize um repositório Git (público, de preferência) para versionamento e disponibilização do código.
 
-A aplicação deve ser construída utilizando qualquer linguagem de programação backend. Qualquer banco de dados, libraries 
+A aplicação deve ser construída utilizando qualquer linguagem de programação backend. Qualquer banco de dados, libraries
 e ferramentas de sua preferência.
 
-A API deverá ser documentada utilizando o formato [API Blueprint](https://apiblueprint.org/) 
+A API deverá ser documentada utilizando o formato [API Blueprint](https://apiblueprint.org/)
 ou [Swagger](https://swagger.io/docs/specification/basic-structure/).
 
 ## O que será avaliado
 
 Queremos avaliar sua capacidade de desenvolver e documentar um back-end para uma aplicação. Serão avaliados:
 
-- Código bem escrito e limpo;
-- Quais ferramentas foram usadas, como e porquê, além do seu conhecimento das mesmas;
-- Seu conhecimento em banco de dados, requisições HTTP, APIs REST, etc;
-- Sua capacidade de se comprometer com o que foi fornecido;
-- Sua capacidade de documentação da sua parte da aplicação.
+-   Código bem escrito e limpo;
+-   Quais ferramentas foram usadas, como e porquê, além do seu conhecimento das mesmas;
+-   Seu conhecimento em banco de dados, requisições HTTP, APIs REST, etc;
+-   Sua capacidade de se comprometer com o que foi fornecido;
+-   Sua capacidade de documentação da sua parte da aplicação.
 
 ## O mínimo necessário
 
-- Uma aplicação contendo uma API real simples, sem autenticação, que atenda os requisitos descritos abaixo, 
-fazendo requisições à um banco de dados para persistência;
-- README.md contendo informações básicas do projeto e como executá-lo;
-- [API Blueprint](https://apiblueprint.org/) ou [Swagger](https://swagger.io/docs/specification/basic-structure/) da aplicação.
+-   Uma aplicação contendo uma API real simples, sem autenticação, que atenda os requisitos descritos abaixo,
+    fazendo requisições à um banco de dados para persistência;
+-   README.md contendo informações básicas do projeto e como executá-lo;
+-   [API Blueprint](https://apiblueprint.org/) ou [Swagger](https://swagger.io/docs/specification/basic-structure/) da aplicação.
 
 ## Bônus
 
-Os seguintes itens não são obrigatórios, mas darão mais valor ao seu trabalho 
+Os seguintes itens não são obrigatórios, mas darão mais valor ao seu trabalho
 (os em negrito são mais significativos para nós)
 
-- Uso de ferramentas externas que facilitem o seu trabalho;
-- Cuidados especiais com otimização, padrões, entre outros;
-- Migrations ou script para configuração do banco de dados utilizado;
-- **Testes**;
-- **Conteinerização da aplicação**;
-- **Autenticação e autorização** (**OAuth, JWT**);
-- **Pipelines de CI/CD (GitLab, CircleCI, TravisCI, etc);**
-- **Deploy em ambientes reais, utilizando serviços de cloud externos (AWS, Heroku, GCP, etc);**
-- Sugestões sobre o challenge embasadas em alguma argumentação.
+-   Uso de ferramentas externas que facilitem o seu trabalho;
+-   Cuidados especiais com otimização, padrões, entre outros;
+-   Migrations ou script para configuração do banco de dados utilizado;
+-   **Testes**;
+-   **Conteinerização da aplicação**;
+-   **Autenticação e autorização** (**OAuth, JWT**);
+-   **Pipelines de CI/CD (GitLab, CircleCI, TravisCI, etc);**
+-   **Deploy em ambientes reais, utilizando serviços de cloud externos (AWS, Heroku, GCP, etc);**
+-   Sugestões sobre o challenge embasadas em alguma argumentação.
 
 # Requisitos
 
@@ -98,7 +205,7 @@ Resposta:
 
 ## 2: Deve ser possível filtrar ferramentas utilizando uma busca por tag
 
-`GET /tools?tag=node`   (*node* é a tag sendo buscada neste exemplo)
+`GET /tools?tag=node` (_node_ é a tag sendo buscada neste exemplo)
 
 Resposta:
 
@@ -137,8 +244,7 @@ Resposta:
 
 O corpo da requisição deve conter as informações da ferramenta a ser cadastrada, sem o ID (gerado automaticamente pelo servidor). A resposta, em caso de sucesso, deve ser o mesmo objeto, com seu novo ID gerado.
 
-`POST /tools
-Content-Type: application/json`
+`POST /tools Content-Type: application/json`
 
     {
         "title": "hotel",
@@ -171,9 +277,9 @@ Resposta:
 
 ## Critérios de Aceitação
 
-- A API deve ser real e escrita por você. Ferramentas que criam APIs automaticamente (Loopback, json-server, etc) não são aceitas;
-- Todos os requisitos acima devem ser cumpridos, seguindo o padrão de rotas estabelecido;
-- Deve haver um documento de API Blueprint ou OpenAPI (antigo Swagger) descrevendo sua API;
-- Se você julgar necessário, adequado ou quiser deixar a aplicação mais completa (bônus!) você pode adicionar outras rotas, métodos, meios de autenticação com usuários, etc.
+-   A API deve ser real e escrita por você. Ferramentas que criam APIs automaticamente (Loopback, json-server, etc) não são aceitas;
+-   Todos os requisitos acima devem ser cumpridos, seguindo o padrão de rotas estabelecido;
+-   Deve haver um documento de API Blueprint ou OpenAPI (antigo Swagger) descrevendo sua API;
+-   Se você julgar necessário, adequado ou quiser deixar a aplicação mais completa (bônus!) você pode adicionar outras rotas, métodos, meios de autenticação com usuários, etc.
 
 ---

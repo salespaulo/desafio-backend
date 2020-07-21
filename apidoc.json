@@ -1,0 +1,15 @@
+{
+    "url": "http://localhost:3000",
+    "header": {
+        "title": "Home",
+        "filename": "header.md"
+    },
+    "footer": {
+        "title": "Copyright",
+        "filename": "footer.md"
+    },
+    "template": {
+        "withCompare": true,
+        "withGenerator": true
+    }
+}
