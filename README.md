@@ -12,7 +12,7 @@
 -   `npm run release:major`: Inicia uma nova release de versão incrementando o **major**, [git flow](https://github.com/nvie/gitflow/) release start.
 -   `npm run release:finish`: Finaliza a release, ou seja, realiza o [git flow](https://github.com/nvie/gitflow/) release finish.
 
-## Rodando Servidor
+# Rodando Servidor
 
 ```
 $> git clone https://github.com/salespaulo/desafio-backend.git
@@ -30,12 +30,12 @@ $> npm install
 $> NODE_ENV=development node app/index
 ```
 
-## Acessando Servidor
+# Acessando Servidor
 
 -   API: http://localhost:3000/tools
 -   Documentação da API: http://localhost:3000/api-doc/index.html
 
-## Modo Desenvolvimento
+# Modo Desenvolvimento
 
 ```
 $> git clone https://github.com/salespaulo/desafio-backend.git
@@ -44,7 +44,7 @@ $> npm install
 $> npm run dev
 ```
 
-### Debug
+## Debug
 
 ```
 $> git clone https://github.com/salespaulo/desafio-backend.git
@@ -53,7 +53,7 @@ $> npm install
 $> npm run debug-dev
 ```
 
-## Rodando os Testes
+# Rodando os Testes
 
 ```
 $> git clone https://github.com/salespaulo/desafio-backend.git
@@ -62,7 +62,7 @@ $> npm install
 $> npm run test
 ```
 
-### Debug
+## Debug
 
 ```
 $> git clone https://github.com/salespaulo/desafio-backend.git
@@ -71,32 +71,37 @@ $> npm install
 $> npm run debug-test
 ```
 
-## Parâmetros ou Variáveis de Ambiente
+# Parâmetros ou Variáveis de Ambiente
 
 Os parâmetros podem ser setados no momento da execução do servidor, e.g. `node app/index --http-server-name=desafio-nome-servidor`.
 As variáveis de amb. podem ser setadas diretamente no sistema operacional e estão representadas abaixo pelas palavras compostas por letras maíusculas.
 
-### Gerais
+## Gerais
 
 -   NODE_ENV: `development` ou `test`, padrão `development`.
 -   DEBUG: `desafio-backend` ou `*`, mostra todos os [debugjs](https://www.npmjs.com/package/debug).
 
-### Servidor
+## Servidor
 
 -   --http-server-name || HTTP_SERVER_NAME: Nome do servidor.
 -   --http-server-port || HTTP_SERVER_PORT: Porta do servidor.
 -   --http-server-version || HTTP_SERVER_VERSION: Versão do servidor.
 
-### Banco de Dados
+## Banco de Dados
 
 -   --database-name || DATABASE_NAME: Nome do banco.
 -   --database-user || DATABASE_USER: Usuário do banco.
 -   --database-password || DATABASE_PASSWORD: Senha do banco.
 -   --database-dialect || DATABASE_DIALECT: [Dialeto do Sequelize](https://sequelize.org/v5/manual/dialects.html) p/ o banco.
 
-### Logger
+## Logger
 
 -   --logger-level || LOGGER_LEVEL: Nível de Log.
+
+# Módulos
+
+-   [./libs/desafio-backend-repo](./libs/desafio-backend-repo/README.md): Módulo com a implementação do repositório backend.
+-   [./libs/desafio-backend-core](./libs/desafio-backend-core/README.md): Módulo com a implementação dos serviços backend.
 
 # Dev. Back-End
 
