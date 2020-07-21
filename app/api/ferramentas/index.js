@@ -46,12 +46,12 @@ module.exports = (uriBase, router) => {
             ctx.status = 200
             ctx.body = data
         } catch (e) {
-            doApiError(`get ${endpoint} by tag=${tagId}`, ctx, e)
+            doApiError(`get ${endpoint} by id=${id}`, ctx, e)
         }
     })
 
     router.get(`${endpoint}`, async ctx => {
-        const tagId = ctx.query.tagId
+        const tagId = ctx.query.tag
 
         try {
             let data = null

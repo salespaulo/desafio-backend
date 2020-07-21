@@ -19,8 +19,9 @@ const validarFerramenta = obj => {
 const buscarPorId = async id => {
     debug.here(`${APP_PREFIX}: Buscando Ferramenta Por id=${id}`)
     const data = await ferramentas.findByPk(id, { include: 'tags' })
-    data.tags = data.tags.map(t => t.id)
-    return data
+    const dataFmt = data.get()
+    dataFmt.tags = dataFmt.tags.map(t => t.id)
+    return dataFmt
 }
 
 const criar = async obj => {
@@ -60,6 +61,16 @@ const excluirPorId = async id => {
     return data
 }
 
+const listarPor = async query => {
+    debug.here(`${APP_PREFIX}: Listar Ferramenta Por query=${objects.inspect(query)}`)
+    const data = await ferramentas.findAll({ where: query, include: ['tags'] })
+    return data.map(d => {
+        const dFmt = d.get()
+        dFmt.tags = dFmt.tags.map(t => t.id)
+        return dFmt
+    })
+}
+
 const listarPorTag = async tagId => {
     debug.here(`${APP_PREFIX}: Listar Ferramentas Por tag=${tagId}`)
     const data = await ferramentastags.findAll({ where: { tagId } })
@@ -67,16 +78,14 @@ const listarPorTag = async tagId => {
     return listarPor({ id: ferramentaIds })
 }
 
-const listarTodos = () => {
+const listarTodos = async () => {
     debug.here(`${APP_PREFIX}: Listando Todas Ferramentas`)
-    return ferramentas.findAll()
-}
-
-const listarPor = async query => {
-    debug.here(`${APP_PREFIX}: Listar Ferramenta Por query=${objects.inspect(query)}`)
-    const data = await ferramentas.findAll({ where: query }, { include: 'tags' })
-    data.tags = data.tags.map(t => t.id)
-    return data
+    const data = await ferramentas.findAll({ include: ['tags'] })
+    return data.map(d => {
+        const dFmt = d.get()
+        dFmt.tags = dFmt.tags.map(t => t.id)
+        return dFmt
+    })
 }
 
 module.exports = {
