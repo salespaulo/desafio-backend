@@ -39,6 +39,7 @@ $> NODE_ENV=development node app/index
 
 ```
 $> git clone https://github.com/salespaulo/desafio-backend.git
+$> git flow init
 $> cd desafio-backend
 $> npm install
 $> npm run dev
@@ -48,6 +49,7 @@ $> npm run dev
 
 ```
 $> git clone https://github.com/salespaulo/desafio-backend.git
+$> git flow init
 $> cd desafio-backend
 $> npm install
 $> npm run debug-dev
